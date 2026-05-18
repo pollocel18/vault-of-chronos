@@ -406,21 +406,25 @@ export default function App() {
   const [akashicLoading, setAkashicLoading] = useState(false);
   const [akashicError, setAkashicError] = useState(null);
   const [showAuthor, setShowAuthor] = useState(false);
-  // eslint-disable-next-line
-  const [tick, setTick] = useState(0);
-  const [pareja, setPareja] = useState(null);
-  const [viewPareja, setViewPareja] = useState(false);
-  const [parejaForm, setParejaForm] = useState({
-    persona_id: "", fecha_conocieron: "", lugar_conocieron: "",
-    fecha_compromiso: "", fecha_boda: "", detalles_importantes: ""
-  });
-  const [enRelacion, setEnRelacion] = useState(false);
+ // eslint-disable-next-line
+const [tick, setTick] = useState(0);
+// eslint-disable-next-line
+const [pareja, setPareja] = useState(null);
+// eslint-disable-next-line
+const [viewPareja, setViewPareja] = useState(false);
+// eslint-disable-next-line
+const [parejaForm, setParejaForm] = useState({
+  persona_id: "", fecha_conocieron: "", lugar_conocieron: "",
+  fecha_compromiso: "", fecha_boda: "", detalles_importantes: ""
+});
+// eslint-disable-next-line
+const [enRelacion, setEnRelacion] = useState(false);
 
-  useEffect(() => {
-    const interval = setInterval(() => setTick(t => t + 1), 1000);
-    return () => clearInterval(interval);
-  }, []);
-
+// eslint-disable-next-line
+useEffect(() => {
+  const interval = setInterval(() => setTick(t => t + 1), 1000);
+  return () => clearInterval(interval);
+}, []);
   useEffect(() => {
     if (!loggedIn) return;
     fetch(`${API}/personas`, {
