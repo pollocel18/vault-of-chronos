@@ -425,7 +425,7 @@ useEffect(() => {
   const interval = setInterval(() => setTick(t => t + 1), 1000);
   return () => clearInterval(interval);
 }, []);
-// eslint-disable-next-line
+   // eslint-disable-next-line
   useEffect(() => {
     if (!loggedIn) return;
     fetch(`${API}/personas`, {
