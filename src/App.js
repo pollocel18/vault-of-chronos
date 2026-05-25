@@ -1,10 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useState, useEffect } from "react";
 
-// eslint-disable-next-line
 const API = process.env.REACT_APP_API;
-const ANTHROPIC_KEY = process.env.REACT_APP_ANTHROPIC_KEY;
-console.log("KEY:", process.env.REACT_APP_ANTHROPIC_KEY);
 
 // Silent wake up
 fetch(`${API}/`).catch(() => {});
@@ -186,120 +183,84 @@ function calcularTonali(fechaStr) {
 
   return { numero, signo, signoTrecena, señorNoche, señorDia, diaSolar, mesSolar, numAño, signoAño };
 }
-// ─────────────────────────────────────────────────────────────────────────────
 
 const ZODIAC_DATA = {
   "Aries": {
-    emoji: "♈",
-    descripcion: "Pioneer, passionate and direct. Born to lead.",
-    compatible: ["Leo", "Sagittarius", "Gemini"],
-    evitar: ["Cancer", "Capricorn"],
+    emoji: "♈", descripcion: "Pioneer, passionate and direct. Born to lead.",
+    compatible: ["Leo", "Sagittarius", "Gemini"], evitar: ["Cancer", "Capricorn"],
     consejo: "Don't try to win an argument with them — it's simply not worth it.",
-    fortaleza: "Boundless energy and courage",
-    debilidad: "Impulsive and stubborn as a wall"
+    fortaleza: "Boundless energy and courage", debilidad: "Impulsive and stubborn as a wall"
   },
   "Taurus": {
-    emoji: "♉",
-    descripcion: "Loyal, patient and a lover of pleasure. The friend who never lets you down.",
-    compatible: ["Virgo", "Capricorn", "Cancer"],
-    evitar: ["Aquarius", "Leo"],
+    emoji: "♉", descripcion: "Loyal, patient and a lover of pleasure. The friend who never lets you down.",
+    compatible: ["Virgo", "Capricorn", "Cancer"], evitar: ["Aquarius", "Leo"],
     consejo: "Never rush them. They'll arrive when they arrive, and they'll arrive well.",
-    fortaleza: "Consistency and reliability",
-    debilidad: "Stubborn beyond belief when they've made up their mind"
+    fortaleza: "Consistency and reliability", debilidad: "Stubborn beyond belief when they've made up their mind"
   },
   "Gemini": {
-    emoji: "♊",
-    descripcion: "Curious, adaptable and brilliant. Two personalities in one.",
-    compatible: ["Libra", "Aquarius", "Aries"],
-    evitar: ["Pisces", "Virgo"],
+    emoji: "♊", descripcion: "Curious, adaptable and brilliant. Two personalities in one.",
+    compatible: ["Libra", "Aquarius", "Aries"], evitar: ["Pisces", "Virgo"],
     consejo: "Don't expect a quick decision. They have two minds running at once.",
-    fortaleza: "Communication and wit",
-    debilidad: "Inconsistent and hard to keep up with"
+    fortaleza: "Communication and wit", debilidad: "Inconsistent and hard to keep up with"
   },
   "Cancer": {
-    emoji: "♋",
-    descripcion: "Intuitive, protective and deeply emotional. The heart of the group.",
-    compatible: ["Scorpio", "Pisces", "Taurus"],
-    evitar: ["Aries", "Libra"],
+    emoji: "♋", descripcion: "Intuitive, protective and deeply emotional. The heart of the group.",
+    compatible: ["Scorpio", "Pisces", "Taurus"], evitar: ["Aries", "Libra"],
     consejo: "Be careful with their feelings — they have an elephant's memory for wounds.",
-    fortaleza: "Loyalty and overflowing empathy",
-    debilidad: "Easily offended and holds grudges"
+    fortaleza: "Loyalty and overflowing empathy", debilidad: "Easily offended and holds grudges"
   },
   "Leo": {
-    emoji: "♌",
-    descripcion: "Charismatic, generous and spectacular. Born under the spotlight.",
-    compatible: ["Aries", "Sagittarius", "Gemini"],
-    evitar: ["Taurus", "Scorpio"],
+    emoji: "♌", descripcion: "Charismatic, generous and spectacular. Born under the spotlight.",
+    compatible: ["Aries", "Sagittarius", "Gemini"], evitar: ["Taurus", "Scorpio"],
     consejo: "Give them their place and recognition — it's not vanity, it's fuel.",
-    fortaleza: "Natural leadership and generosity",
-    debilidad: "An ego that sometimes takes up more space than they do"
+    fortaleza: "Natural leadership and generosity", debilidad: "An ego that sometimes takes up more space than they do"
   },
   "Virgo": {
-    emoji: "♍",
-    descripcion: "Analytical, helpful and perfectionist. The one who solves everything without complaining.",
-    compatible: ["Taurus", "Capricorn", "Cancer"],
-    evitar: ["Sagittarius", "Gemini"],
+    emoji: "♍", descripcion: "Analytical, helpful and perfectionist. The one who solves everything without complaining.",
+    compatible: ["Taurus", "Capricorn", "Cancer"], evitar: ["Sagittarius", "Gemini"],
     consejo: "Don't tell them 'it's fine as is' when it isn't. They know.",
-    fortaleza: "Precision and dedication",
-    debilidad: "Critical of themselves and others"
+    fortaleza: "Precision and dedication", debilidad: "Critical of themselves and others"
   },
   "Libra": {
-    emoji: "♎",
-    descripcion: "Fair, charming and diplomatic. Hates conflict almost as much as they love harmony.",
-    compatible: ["Gemini", "Aquarius", "Leo"],
-    evitar: ["Cancer", "Capricorn"],
+    emoji: "♎", descripcion: "Fair, charming and diplomatic. Hates conflict almost as much as they love harmony.",
+    compatible: ["Gemini", "Aquarius", "Leo"], evitar: ["Cancer", "Capricorn"],
     consejo: "Don't make them choose. It's their kryptonite.",
-    fortaleza: "Balance and people skills",
-    debilidad: "Indecisive to infinity"
+    fortaleza: "Balance and people skills", debilidad: "Indecisive to infinity"
   },
   "Scorpio": {
-    emoji: "♏",
-    descripcion: "Intense, magnetic and mysterious. What you see is only the surface.",
-    compatible: ["Cancer", "Pisces", "Capricorn"],
-    evitar: ["Leo", "Aquarius"],
+    emoji: "♏", descripcion: "Intense, magnetic and mysterious. What you see is only the surface.",
+    compatible: ["Cancer", "Pisces", "Capricorn"], evitar: ["Leo", "Aquarius"],
     consejo: "Never lie to them. They know before you finish the sentence.",
-    fortaleza: "Determination and emotional depth",
-    debilidad: "Resentful and jealous when they feel betrayed"
+    fortaleza: "Determination and emotional depth", debilidad: "Resentful and jealous when they feel betrayed"
   },
   "Sagittarius": {
-    emoji: "♐",
-    descripcion: "Adventurous, philosophical and honest. Freedom is their religion.",
-    compatible: ["Aries", "Leo", "Libra"],
-    evitar: ["Virgo", "Pisces"],
+    emoji: "♐", descripcion: "Adventurous, philosophical and honest. Freedom is their religion.",
+    compatible: ["Aries", "Leo", "Libra"], evitar: ["Virgo", "Pisces"],
     consejo: "Don't try to cage them. They'll leave without looking back.",
-    fortaleza: "Optimism and thirst for knowledge",
-    debilidad: "Struggles to commit and sometimes brutally honest"
+    fortaleza: "Optimism and thirst for knowledge", debilidad: "Struggles to commit and sometimes brutally honest"
   },
   "Capricorn": {
-    emoji: "♑",
-    descripcion: "Ambitious, disciplined and responsible. The one who finishes what they start.",
-    compatible: ["Taurus", "Virgo", "Scorpio"],
-    evitar: ["Aries", "Libra"],
+    emoji: "♑", descripcion: "Ambitious, disciplined and responsible. The one who finishes what they start.",
+    compatible: ["Taurus", "Virgo", "Scorpio"], evitar: ["Aries", "Libra"],
     consejo: "Don't interrupt them when they're working. There are consequences.",
-    fortaleza: "Perseverance and practical sense",
-    debilidad: "Workaholic and sometimes emotionally cold"
+    fortaleza: "Perseverance and practical sense", debilidad: "Workaholic and sometimes emotionally cold"
   },
   "Aquarius": {
-    emoji: "♒",
-    descripcion: "Visionary, original and independent. Lives in the future.",
-    compatible: ["Gemini", "Libra", "Sagittarius"],
-    evitar: ["Taurus", "Scorpio"],
+    emoji: "♒", descripcion: "Visionary, original and independent. Lives in the future.",
+    compatible: ["Gemini", "Libra", "Sagittarius"], evitar: ["Taurus", "Scorpio"],
     consejo: "Don't tell them their idea is weird. To them that's a compliment.",
-    fortaleza: "Originality and innovative thinking",
-    debilidad: "Emotionally distant and very much in their own world"
+    fortaleza: "Originality and innovative thinking", debilidad: "Emotionally distant and very much in their own world"
   },
   "Pisces": {
-    emoji: "♓",
-    descripcion: "Dreamy, empathetic and creative. Lives between reality and another plane.",
-    compatible: ["Cancer", "Scorpio", "Taurus"],
-    evitar: ["Gemini", "Sagittarius"],
+    emoji: "♓", descripcion: "Dreamy, empathetic and creative. Lives between reality and another plane.",
+    compatible: ["Cancer", "Scorpio", "Taurus"], evitar: ["Gemini", "Sagittarius"],
     consejo: "Don't bombard them with logic when they're in emotional mode. Wait.",
-    fortaleza: "Intuition and boundless compassion",
-    debilidad: "Gets lost in their own dreams and avoids confrontation"
+    fortaleza: "Intuition and boundless compassion", debilidad: "Gets lost in their own dreams and avoids confrontation"
   }
 };
 
-async function fetchCapsula(nombre, fecha) {
+// ── Time Capsule: now goes through backend ────────────────────────────────────
+async function fetchCapsula(token, nombre, fecha) {
   const parts = fecha.split("-");
   const day = parseInt(parts[2]);
   const month = parseInt(parts[1]);
@@ -324,29 +285,61 @@ Respond ONLY with a JSON object with exactly this structure, no additional text,
   "luna": "The approximate moon phase for that exact date (Full Moon, New Moon, First Quarter, Last Quarter).",
   "precio": "A curious price of something everyday in that year (food, movies, gas, etc.) with a comparison to today.",
   "dato_curioso": "A surprising or fun fact about that year or date.",
-  "recomendacion": "A fun life recommendation with humor for ${nombre} based on their ${zodiacName} sign. Something they could try, with a comedic twist related to their sign's personality. Example: 'With your Aries energy, you could try pottery... though you'd probably end up throwing the clay across the room out of impatience.'"
+  "recomendacion": "A fun life recommendation with humor for ${nombre} based on their ${zodiacName} sign. Something they could try, with a comedic twist related to their sign's personality."
 }`;
 
-  const response = await fetch("https://api.anthropic.com/v1/messages", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      "x-api-key": ANTHROPIC_KEY,
-      "anthropic-version": "2023-06-01",
-      "anthropic-dangerous-direct-browser-access": "true"
-    },
-    body: JSON.stringify({
-      model: "claude-sonnet-4-20250514",
-      max_tokens: 1000,
-      messages: [{ role: "user", content: prompt }]
-    })
+  const response = await fetch(`${API}/api/capsula`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
+    body: JSON.stringify({ prompt }),
   });
 
-  const data = await response.json();
-  console.log("Anthropic response:", JSON.stringify(data));
-  const text = data.content[0].text.trim();
-  const clean = text.replace(/```json|```/g, "").trim();
-  return JSON.parse(clean);
+  if (!response.ok) throw new Error('Could not load the time capsule');
+  return response.json();
+}
+
+// ── Akashic Records: now goes through backend ─────────────────────────────────
+async function fetchAkashic(token, persona) {
+  const parts = persona.fecha.split("-");
+  const anio = parseInt(parts[0]);
+  const mes = parseInt(parts[1]);
+  const dia = parseInt(parts[2]);
+  const signoZodiacal = getZodiacName(persona.fecha);
+  const tonaliData = calcularTonali(persona.fecha);
+  const reducir = n => { while (n > 9 && n !== 11 && n !== 22 && n !== 33) { n = String(n).split("").reduce((a, b) => a + parseInt(b), 0); } return n; };
+  const numVida = reducir(dia + mes + anio);
+
+  const prompt = `You are an expert reader of Akashic Records with deep knowledge of numerology, astrology, and Mesoamerican cosmovision. Based on this person's data, generate a deep, poetic and very personal akashic reading. Do NOT use generic language — speak directly to this person's soul as if you could truly see their unique record.
+
+Person's data:
+- Name: ${persona.nombre}
+- Date of birth: ${mes}/${dia}/${anio}
+- Zodiac sign: ${signoZodiacal}
+- Mexica Tonali: ${tonaliData ? `${tonaliData.numero} ${tonaliData.signo.nombre}` : "unknown"}
+- Trecena: ${tonaliData ? `Ce ${tonaliData.signoTrecena.nombre}` : "unknown"}
+- Lord of the Night: ${tonaliData ? tonaliData.señorNoche.nombre : "unknown"}
+- Solar month: ${tonaliData ? tonaliData.mesSolar.nombre : "unknown"}
+- Life number (numerology): ${numVida}
+- Day number: ${dia}
+
+Respond ONLY with a JSON object with exactly this structure, no additional text, no markdown, no backticks:
+
+{
+  "proposito": "The soul's purpose in this incarnation — 3 to 4 intimate and specific sentences based on the data.",
+  "dones": "The gifts and talents brought from past lives — 3 to 4 poetic and specific sentences.",
+  "karma": "The karmic patterns or pending lessons — 3 to 4 honest and compassionate sentences.",
+  "arquetipo": "The archetype that represents this soul — name the archetype and explain it in 2 to 3 sentences.",
+  "mensaje": "A direct and intimate message from the Record for this person — 2 to 3 sentences that could only be for them."
+}`;
+
+  const response = await fetch(`${API}/api/akashic`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
+    body: JSON.stringify({ prompt }),
+  });
+
+  if (!response.ok) throw new Error('Could not open the Record');
+  return response.json();
 }
 
 const COLORS = [
@@ -407,55 +400,32 @@ export default function App() {
   const [akashicLoading, setAkashicLoading] = useState(false);
   const [akashicError, setAkashicError] = useState(null);
   const [showAuthor, setShowAuthor] = useState(false);
- // eslint-disable-next-line
-const [tick, setTick] = useState(0);
-// eslint-disable-next-line
-const [pareja, setPareja] = useState(null);
-// eslint-disable-next-line
-const [viewPareja, setViewPareja] = useState(false);
-// eslint-disable-next-line
-const [parejaForm, setParejaForm] = useState({
-  persona_id: "", fecha_conocieron: "", lugar_conocieron: "",
-  fecha_compromiso: "", fecha_boda: "", detalles_importantes: ""
-});
-// eslint-disable-next-line
-const [enRelacion, setEnRelacion] = useState(false);
+  const [tick, setTick] = useState(0);
 
-// eslint-disable-next-line
-useEffect(() => {
-  const interval = setInterval(() => setTick(t => t + 1), 1000);
-  return () => clearInterval(interval);
-}, []);
-   // eslint-disable-next-line
+  useEffect(() => {
+    const interval = setInterval(() => setTick(t => t + 1), 1000);
+    return () => clearInterval(interval);
+  }, []);
+
   useEffect(() => {
     if (!loggedIn) return;
     fetch(`${API}/personas`, {
       headers: { Authorization: `Bearer ${token}` }
     })
-      .then(r => r.json())
-      .then(data => setPersonas(data.map(p => ({ ...p, fecha: p.fecha.split("T")[0] }))))
-      .catch(err => console.error(err));
-
-    fetch(`${API}/pareja`, {
-      headers: { Authorization: `Bearer ${token}` }
-    })
-      .then(r => r.json())
-      .then(data => {
-        if (data) {
-          setPareja(data);
-          setEnRelacion(true);
-          setParejaForm({
-            persona_id: data.persona_id || "",
-            fecha_conocieron: data.fecha_conocieron ? data.fecha_conocieron.split("T")[0] : "",
-            lugar_conocieron: data.lugar_conocieron || "",
-            fecha_compromiso: data.fecha_compromiso ? data.fecha_compromiso.split("T")[0] : "",
-            fecha_boda: data.fecha_boda ? data.fecha_boda.split("T")[0] : "",
-            detalles_importantes: data.detalles_importantes || ""
-          });
+      .then(r => {
+        if (r.status === 401) {
+          localStorage.removeItem('token');
+          localStorage.removeItem('usuario');
+          setToken(''); setUsuario(''); setLoggedIn(false);
+          return null;
         }
+        return r.json();
+      })
+      .then(data => {
+        if (data) setPersonas(data.map(p => ({ ...p, fecha: p.fecha.split("T")[0] })));
       })
       .catch(err => console.error(err));
-  }, [loggedIn]);
+  }, [loggedIn, token]);
 
   const sorted = [...personas]
     .filter(p => p.nombre.toLowerCase().includes(search.toLowerCase()))
@@ -515,7 +485,7 @@ useEffect(() => {
         setCapsulaLoading(false);
         return;
       }
-      const data = await fetchCapsula(persona.nombre, persona.fecha);
+      const data = await fetchCapsula(token, persona.nombre, persona.fecha);
       await fetch(`${API}/personas/${persona.id}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` },
@@ -545,56 +515,7 @@ useEffect(() => {
         setAkashicLoading(false);
         return;
       }
-      const parts = persona.fecha.split("-");
-      const anio = parseInt(parts[0]);
-      const mes = parseInt(parts[1]);
-      const dia = parseInt(parts[2]);
-      const signoZodiacal = getZodiacName(persona.fecha);
-      const tonaliData = calcularTonali(persona.fecha);
-      const reducir = n => { while (n > 9 && n !== 11 && n !== 22 && n !== 33) { n = String(n).split("").reduce((a, b) => a + parseInt(b), 0); } return n; };
-      const numVida = reducir(dia + mes + anio);
-
-      const prompt = `You are an expert reader of Akashic Records with deep knowledge of numerology, astrology, and Mesoamerican cosmovision. Based on this person's data, generate a deep, poetic and very personal akashic reading. Do NOT use generic language — speak directly to this person's soul as if you could truly see their unique record.
-
-Person's data:
-- Name: ${persona.nombre}
-- Date of birth: ${mes}/${dia}/${anio}
-- Zodiac sign: ${signoZodiacal}
-- Mexica Tonali: ${tonaliData ? `${tonaliData.numero} ${tonaliData.signo.nombre}` : "unknown"}
-- Trecena: ${tonaliData ? `Ce ${tonaliData.signoTrecena.nombre}` : "unknown"}
-- Lord of the Night: ${tonaliData ? tonaliData.señorNoche.nombre : "unknown"}
-- Solar month: ${tonaliData ? tonaliData.mesSolar.nombre : "unknown"}
-- Life number (numerology): ${numVida}
-- Day number: ${dia}
-
-Respond ONLY with a JSON object with exactly this structure, no additional text, no markdown, no backticks:
-
-{
-  "proposito": "The soul's purpose in this incarnation — 3 to 4 intimate and specific sentences based on the data.",
-  "dones": "The gifts and talents brought from past lives — 3 to 4 poetic and specific sentences.",
-  "karma": "The karmic patterns or pending lessons — 3 to 4 honest and compassionate sentences.",
-  "arquetipo": "The archetype that represents this soul — name the archetype and explain it in 2 to 3 sentences.",
-  "mensaje": "A direct and intimate message from the Record for this person — 2 to 3 sentences that could only be for them."
-}`;
-
-      const response = await fetch("https://api.anthropic.com/v1/messages", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "x-api-key": ANTHROPIC_KEY,
-          "anthropic-version": "2023-06-01",
-          "anthropic-dangerous-direct-browser-access": "true"
-        },
-        body: JSON.stringify({
-          model: "claude-sonnet-4-20250514",
-          max_tokens: 1200,
-          messages: [{ role: "user", content: prompt }]
-        })
-      });
-      const data = await response.json();
-      const text = data.content[0].text.trim();
-      const clean = text.replace(/```json|```/g, "").trim();
-      const lectura = JSON.parse(clean);
+      const lectura = await fetchAkashic(token, persona);
       await fetch(`${API}/personas/${persona.id}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` },
@@ -707,9 +628,8 @@ Respond ONLY with a JSON object with exactly this structure, no additional text,
               🏛️ The Vault of Chronos
             </div>
             <div style={{ fontSize: 12, color: "#6666aa", marginTop: 2 }}>
-              <span onClick={() => setShowAuthor(true)}
-                style={{ cursor: "pointer", color: "#00C9A7", fontWeight: 700 }}
-                title="Contact the creator">-=ArtMoreno=-</span> · 👤 {usuario} · {personas.length} {personas.length === 1 ? "person" : "people"} saved
+              <span onClick={() => setShowAuthor(true)} style={{ cursor: "pointer", color: "#00C9A7", fontWeight: 700 }}>-=ArtMoreno=-</span>
+              {' '}· 👤 {usuario} · {personas.length} {personas.length === 1 ? "person" : "people"} saved
             </div>
           </div>
           <button onClick={() => {
@@ -749,8 +669,7 @@ Respond ONLY with a JSON object with exactly this structure, no additional text,
       {/* List view */}
       {view === "lista" && (
         <div style={{ padding: "16px 20px" }}>
-          <input value={search} onChange={e => setSearch(e.target.value)}
-            placeholder="🔍 Search person..."
+          <input value={search} onChange={e => setSearch(e.target.value)} placeholder="🔍 Search person..."
             style={{
               width: "100%", background: "#1a1a2e", border: "1px solid #2a2a4e",
               borderRadius: 10, padding: "10px 14px", color: "#e8e8f0",
@@ -793,15 +712,15 @@ Respond ONLY with a JSON object with exactly this structure, no additional text,
             </div>
           </div>
           {[
-            { label: "Name *", key: "nombre", type: "text", placeholder: "What's their name?" },
-            { label: "Nickname", key: "apodo", type: "text", placeholder: "E.g.: Johnny, Lizzie, Mike..." },
-            { label: "Interests / Hobbies", key: "gustos", type: "text", placeholder: "Coffee, music, books..." },
-            { label: "Notes", key: "notas", type: "text", placeholder: "Anything you want to remember..." },
+            { label: "Name *", key: "nombre", placeholder: "What's their name?" },
+            { label: "Nickname", key: "apodo", placeholder: "E.g.: Johnny, Lizzie, Mike..." },
+            { label: "Interests / Hobbies", key: "gustos", placeholder: "Coffee, music, books..." },
+            { label: "Notes", key: "notas", placeholder: "Anything you want to remember..." },
           ].map(f => (
             <div key={f.key} style={{ marginBottom: 16 }}>
               <div style={{ fontSize: 12, color: "#6666aa", fontWeight: 600, marginBottom: 6, letterSpacing: 0.5 }}>{f.label}</div>
               <input value={form[f.key]} onChange={e => setForm({ ...form, [f.key]: e.target.value })}
-                type={f.type} placeholder={f.placeholder}
+                type="text" placeholder={f.placeholder}
                 style={{
                   width: "100%", background: "#1a1a2e", border: "1px solid #2a2a4e",
                   borderRadius: 10, padding: "12px 14px", color: "#e8e8f0",
@@ -864,12 +783,11 @@ Respond ONLY with a JSON object with exactly this structure, no additional text,
               × Remove photo
             </button>}
           </div>
-          <button onClick={handleSubmit}
-            style={{
-              width: "100%", background: "linear-gradient(135deg, #6C63FF, #FF6B9D)",
-              border: "none", borderRadius: 12, padding: "14px",
-              color: "#fff", fontSize: 15, fontWeight: 700, cursor: "pointer", marginTop: 8
-            }}>
+          <button onClick={handleSubmit} style={{
+            width: "100%", background: "linear-gradient(135deg, #6C63FF, #FF6B9D)",
+            border: "none", borderRadius: 12, padding: "14px",
+            color: "#fff", fontSize: 15, fontWeight: 700, cursor: "pointer", marginTop: 8
+          }}>
             {editId ? "Save changes" : "Add person"} ✔
           </button>
         </div>
@@ -903,7 +821,6 @@ Respond ONLY with a JSON object with exactly this structure, no additional text,
 
         return (
           <div>
-            {/* Hero */}
             <div style={{ position: "relative", height: 280, overflow: "hidden", cursor: persona.foto ? "crosshair" : "default",
               background: persona.foto ? "none" : `linear-gradient(135deg, ${persona.color}55, #1a1a2e)` }}
               onClick={handleDrag} onTouchEnd={handleDrag}>
@@ -915,9 +832,9 @@ Respond ONLY with a JSON object with exactly this structure, no additional text,
               )}
               <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to bottom, rgba(0,0,0,0.05) 0%, rgba(15,15,30,0.92) 100%)", pointerEvents: "none" }} />
               <button onClick={e => { e.stopPropagation(); setView("lista"); }} style={{
-                position: "absolute", top: 16, left: 16,
-                background: "rgba(0,0,0,0.55)", border: "none", borderRadius: 10,
-                color: "#fff", fontSize: 18, cursor: "pointer", padding: "6px 14px", backdropFilter: "blur(4px)", zIndex: 2
+                position: "absolute", top: 16, left: 16, background: "rgba(0,0,0,0.55)",
+                border: "none", borderRadius: 10, color: "#fff", fontSize: 18,
+                cursor: "pointer", padding: "6px 14px", backdropFilter: "blur(4px)", zIndex: 2
               }}>←</button>
               {persona.foto && (
                 <div style={{ position: "absolute", top: 16, right: 16, background: "rgba(0,0,0,0.5)", borderRadius: 8, padding: "4px 8px", fontSize: 10, color: "#aaa", backdropFilter: "blur(4px)" }}>
@@ -925,10 +842,7 @@ Respond ONLY with a JSON object with exactly this structure, no additional text,
                 </div>
               )}
               <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, padding: "0 20px 20px" }}>
-                <div style={{
-                  background: "rgba(15,15,30,0.78)", backdropFilter: "blur(10px)",
-                  borderRadius: 16, padding: "16px", border: "1px solid rgba(255,255,255,0.08)", textAlign: "center"
-                }}>
+                <div style={{ background: "rgba(15,15,30,0.78)", backdropFilter: "blur(10px)", borderRadius: 16, padding: "16px", border: "1px solid rgba(255,255,255,0.08)", textAlign: "center" }}>
                   <div style={{ fontSize: 24, fontWeight: 700, fontFamily: "'Playfair Display', serif", color: "#fff" }}>{persona.nombre}</div>
                   {persona.apodo && <div style={{ fontSize: 14, color: persona.color, fontWeight: 600, marginTop: 2 }}>"{persona.apodo}"</div>}
                   <div style={{ fontSize: 12, color: "#888", marginTop: 6, display: "flex", justifyContent: "center", alignItems: "center", gap: 8, flexWrap: "wrap" }}>
@@ -942,7 +856,6 @@ Respond ONLY with a JSON object with exactly this structure, no additional text,
             </div>
 
             <div style={{ padding: "16px 20px" }}>
-
               {/* Birthday countdown */}
               <div style={{ background: "#1a1a2e", borderRadius: 14, padding: 16, marginBottom: 12, textAlign: "center" }}>
                 {days === 0
@@ -985,10 +898,7 @@ Respond ONLY with a JSON object with exactly this structure, no additional text,
                       { label: "Minutes", value: fmt(totalMinutes), icon: "⚡", color: "#C77DFF" },
                       { label: "Seconds", value: fmt(totalSeconds), icon: "💓", color: "#FF85A1" },
                     ].map((item, i) => (
-                      <div key={item.label} style={{
-                        display: "flex", justifyContent: "space-between", alignItems: "center",
-                        padding: "8px 0", borderBottom: i < 5 ? "1px solid #2a2a3e" : "none"
-                      }}>
+                      <div key={item.label} style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "8px 0", borderBottom: i < 5 ? "1px solid #2a2a3e" : "none" }}>
                         <span style={{ fontSize: 13, color: "#aaa" }}>{item.icon} {item.label}</span>
                         <span style={{ fontSize: i >= 4 ? 13 : 16, fontWeight: 700, color: item.color, fontFamily: "monospace" }}>{item.value}</span>
                       </div>
@@ -1006,23 +916,17 @@ Respond ONLY with a JSON object with exactly this structure, no additional text,
                     width: "100%", background: "linear-gradient(135deg, #FFD93D22, #FF6B6B22)",
                     border: "1px solid #FFD93D55", borderRadius: 10, padding: "12px",
                     color: "#FFD93D", fontSize: 14, fontWeight: 700, cursor: "pointer"
-                  }}>
-                    ✨ What was happening the day you were born? ✨
-                  </button>
+                  }}>✨ What was happening the day you were born? ✨</button>
                 )}
                 {capsulaLoading && (
                   <div style={{ textAlign: "center", padding: "20px 0", color: "#6666aa", fontSize: 13 }}>
-                    <div style={{ fontSize: 28, marginBottom: 8 }}>🔮</div>
-                    Traveling through time...
+                    <div style={{ fontSize: 28, marginBottom: 8 }}>🔮</div>Traveling through time...
                   </div>
                 )}
                 {capsulaError && (
                   <div style={{ color: "#FF6B6B", fontSize: 13, textAlign: "center" }}>
                     {capsulaError}
-                    <button onClick={() => handleDescubrirDia(persona)}
-                      style={{ display: "block", margin: "8px auto 0", background: "none", border: "none", color: "#6C63FF", cursor: "pointer", fontSize: 13 }}>
-                      Try again
-                    </button>
+                    <button onClick={() => handleDescubrirDia(persona)} style={{ display: "block", margin: "8px auto 0", background: "none", border: "none", color: "#6C63FF", cursor: "pointer", fontSize: 13 }}>Try again</button>
                   </div>
                 )}
                 {capsula && (
@@ -1046,224 +950,73 @@ Respond ONLY with a JSON object with exactly this structure, no additional text,
                         <div style={{ fontSize: 13, color: "#ccc", lineHeight: 1.5 }}>{item.value}</div>
                       </div>
                     ))}
-                    <div style={{ textAlign: "center", marginTop: 10 }}>
-                      <span onClick={() => setShowAuthor(true)} style={{ fontSize: 10, color: "#00C9A7", fontWeight: 700, cursor: "pointer", letterSpacing: 1 }}>-=ArtMoreno=-</span>
-                    </div>
-                    <button onClick={() => setCapsula(null)}
-                      style={{ background: "none", border: "none", color: "#444", fontSize: 11, cursor: "pointer", marginTop: 4 }}>
-                      × Close
-                    </button>
+                    <button onClick={() => setCapsula(null)} style={{ background: "none", border: "none", color: "#444", fontSize: 11, cursor: "pointer", marginTop: 4 }}>× Close</button>
                   </div>
                 )}
               </div>
 
-              {/* ── TONALI MEXICA ─────────────────────────────────────── */}
+              {/* Tonali Mexica */}
               <div style={{ background: "#1a1a2e", borderRadius: 14, padding: 16, marginBottom: 12 }}>
-                <div style={{ fontSize: 11, color: "#FFB347", fontWeight: 700, letterSpacing: 1, marginBottom: 12 }}>
-                  🦅 TÓNALI — MEXICA CALENDAR 🦅
-                </div>
+                <div style={{ fontSize: 11, color: "#FFB347", fontWeight: 700, letterSpacing: 1, marginBottom: 12 }}>🦅 TÓNALI — MEXICA CALENDAR 🦅</div>
                 {!tonaliVisible && (
                   <button onClick={() => handleMostrarTonali(persona)} style={{
-                    width: "100%",
-                    background: "linear-gradient(135deg, #B8860B22, #FFB34722)",
+                    width: "100%", background: "linear-gradient(135deg, #B8860B22, #FFB34722)",
                     border: "1px solid #FFB34755", borderRadius: 10, padding: "12px",
                     color: "#FFB347", fontSize: 14, fontWeight: 700, cursor: "pointer"
-                  }}>
-                    🌀 Discover my Mexica sign 🌀
-                  </button>
+                  }}>🌀 Discover my Mexica sign 🌀</button>
                 )}
                 {tonaliVisible && tonali && (() => {
                   const { numero, signo, signoTrecena, señorNoche, señorDia, diaSolar, mesSolar, numAño, signoAño } = tonali;
-
-                  const descSignoRica = {
-                    "Cuauhtli": `The Eagle is one of the most powerful signs of the Mexica calendar. It is associated with the sun and light — the eagle flies highest of all, the one that looks directly at the great star without blinking. It represents vision and clarity, the ability to see what others cannot; willpower and determination, the warrior spirit; and natural leadership. Those born under this sign were considered people with an important mission, destined to rise above the ordinary.`,
-                    "Ocelotl": `The Jaguar is the warrior of darkness. It rules the nocturnal forces and hidden power. Those born under this sign possess magnetic depth, sharp intuition and a determination that never surrenders. The jaguar does not attack with brute force — it waits, observes and acts with precision. Symbol of the jaguar warriors, the military elite of the Mexica.`,
-                    "Acatl": `The Reed is the symbol of Quetzalcoatl, the feathered serpent, deity of wisdom and the word. Those born under this sign have a natural affinity with knowledge, philosophy and the search for truth. They are natural communicators, bearers of ideas that transcend their time.`,
-                    "Xochitl": `The Flower is the sign of art, beauty and love. Those born under Xochitl have the gift of creating beauty in everything they touch — music, poetry, human relationships. They are sensitive, creative and capable of seeing magic where others see only the ordinary.`,
-                    "Ollin": `Movement is the sign of the fifth sun — the current sun in Mexica cosmology. It is the sign of destiny in action, of that which cannot be stopped. Those born under Ollin are marked by constant transformation and a life of great changes and great achievements.`,
-                    "Coatl": `The Serpent represents ancestral wisdom and rebirth. By shedding its skin, the serpent symbolizes the ability to transform and be reborn stronger. Those born under this sign are deep, intuitive and possess knowledge that seems to come from very within.`,
-                    "Cipactli": `The Caiman is the first sign of the calendar — the primordial force of origin. It represents the creative energy that gave shape to the world. Those born under Cipactli have exceptional vitality and the ability to initiate what others only dare to dream.`,
-                  };
-
-                  const descSignoFinal = descSignoRica[signo.nombre] || signo.desc;
-                  const esPrimerDia = numero === 1;
-                  const descTrecenaRica = esPrimerDia
-                    ? `You were born exactly on the first day of the trecena — the day that gives the entire cycle its name. This is uncommon and very significant. The sign's energy manifests in you in its purest and most direct form, without the modifying influence of previous days. You don't just belong to this trecena: you are its starting point, the one who opens the path for the 12 days that follow.`
-                    : `You are day ${numero} of this trecena. The energy of ${signoTrecena.nombre} colors your entire 13-day cycle, nuancing your tónali with the qualities of that ruling sign.`;
-
-                  const descNocheRica = {
-                    "Chalchiuhtlicue": `The 'Jade Skirt', goddess of moving waters — rivers, lakes, currents. Represents emotional fluidity, fertility and protection. Your nocturnal, interior side is deep and sensitive even if you don't always show it on the outside. Jade in Mexica culture was the most precious material — green like water, hard like truth.`,
-                    "Xiuhtecuhtli": `The Lord of Fire, the most ancient of the gods. Your inner world burns with a constant flame. You are the one who gives warmth to those around you, the axis around which life revolves. The nocturnal fire is the one that never goes out — it purifies, transforms and gives light in the darkness.`,
-                    "Tlaloc": `The god of rain rules your nocturnal world. You are someone who, in intimacy, has the gift of nurturing and giving life to what you touch. Like the rain that falls at night without anyone seeing it, your deepest impact happens in silence.`,
-                    "Tezcatlipoca": `The Smoking Mirror. Your inner world is complex, deep and full of nuance. Tezcatlipoca is the god who sees hidden truth in the mirror — what we don't want to see about ourselves and what makes us most human.`,
-                    "Quetzalcoatl": `The Feathered Serpent on your nocturnal side. Your inner world is a well of wisdom and creativity that doesn't always surface. You are deeper than you appear, and your silence speaks more than the words of others.`,
-                  };
-
-                  const descNocheFinal = descNocheRica[señorNoche.nombre] || señorNoche.desc;
-
-                  const descMesRica = {
-                    "Panquetzaliztli": `'Raising of banners' — the month of the great feast of Huitzilopochtli, whose name literally means 'Hummingbird of the South' or 'Left-handed Hummingbird'. Being born in this month connects with the solar warrior energy and with the hummingbird as a symbol of the fallen who return. There is a silent presence of the hummingbird in your profile even if it doesn't appear directly in your tónali.`,
-                    "Tlacaxipehualiztli": `The month of renewal and rebirth. Being born in this period grants a special capacity for transformation — letting go of the old and embracing the new without fear.`,
-                    "Toxcatl": `The month of drought and purity. Being born here speaks of extraordinary inner resilience — like the earth that waits for rain without losing hope.`,
-                    "Izcalli": `The month of resurrection. Being born in Izcalli is being born at the time of awakening, when everything that seemed dormant returns to life.`,
-                  };
-
-                  const descMesFinal = descMesRica[mesSolar.nombre] || mesSolar.desc;
-
-                  const descAñoRica = {
-                    "Acatl": `The Reed is the symbol of Quetzalcoatl — wisdom, knowledge and the sacred word. The number ${numAño} is close to the limit of the 13-cycle, giving it an energy of maturity and depth. Being born in a Reed year connects with the search for knowledge and the understanding of mysteries. It's no coincidence to feel affinity for ancient cultures and philosophies — your birth year already announced it.`,
-                    "Tochtli": `The Rabbit brings abundance and joy. Being born in this year speaks of a generous life, full of celebration and the ability to find pleasure and meaning in everyday things.`,
-                    "Tecpatl": `The Flint is truth that cuts. Being born in a Flint year grants an almost uncomfortable clarity — the ability to see things as they are, without ornament. It's the year of those who tell the truth even when it hurts.`,
-                    "Calli": `The House is refuge and the inner world. Being born in a House year speaks of a life built inward — deep roots, home as the center of the personal universe.`,
-                  };
-
-                  const descAñoFinal = descAñoRica[signoAño.nombre] || `Year ${numAño} ${signoAño.nombre} — ${signoAño.desc}.`;
                   const mismoSigno = signo.nombre === signoTrecena.nombre;
+                  const esPrimerDia = numero === 1;
+
+                  const descTrecena = esPrimerDia
+                    ? `You were born exactly on the first day of the trecena — the day that gives the entire cycle its name. This is uncommon and very significant. The sign's energy manifests in you in its purest and most direct form.`
+                    : `You are day ${numero} of this trecena. The energy of ${signoTrecena.nombre} colors your entire 13-day cycle.`;
 
                   return (
                     <div>
-                      {/* Main sign */}
-                      <div style={{
-                        background: "linear-gradient(135deg, #2a1a0a, #1a1a2e)",
-                        borderRadius: 12, padding: 16, marginBottom: 12,
-                        border: "1px solid #B8860B44", textAlign: "center"
-                      }}>
+                      <div style={{ background: "linear-gradient(135deg, #2a1a0a, #1a1a2e)", borderRadius: 12, padding: 16, marginBottom: 12, border: "1px solid #B8860B44", textAlign: "center" }}>
                         <div style={{ fontSize: 44 }}>{signo.emoji}</div>
-                        <div style={{ fontSize: 22, fontWeight: 700, color: "#FFB347", fontFamily: "'Playfair Display', serif", marginTop: 4 }}>
-                          {numero} {signo.nombre}
+                        <div style={{ fontSize: 22, fontWeight: 700, color: "#FFB347", fontFamily: "'Playfair Display', serif", marginTop: 4 }}>{numero} {signo.nombre}</div>
+                        <div style={{ fontSize: 13, color: "#ccc", marginTop: 8, lineHeight: 1.7 }}>{signo.desc}</div>
+                      </div>
+                      {[
+                        { color: "#FFD93D", label: "📅 TRECENA", title: `Ce (1) ${signoTrecena.nombre} · Day ${numero} of the cycle`, desc: descTrecena },
+                        { color: "#C77DFF", label: "🌙 LORD OF THE NIGHT", title: señorNoche.nombre, desc: señorNoche.desc },
+                        { color: "#FF6B6B", label: "🔥 LORD OF THE DAY", title: señorDia, desc: `Rules number ${numero} in the daily cycle.` },
+                        { color: "#6BCB77", label: "📆 SOLAR MONTH · XIUHPOHUALLI", title: `Day ${diaSolar} of ${mesSolar.nombre}`, desc: mesSolar.desc },
+                        { color: "#4D96FF", label: "🗓️ YEAR", title: `${numAño} ${signoAño.nombre} — ${signoAño.desc}`, desc: "" },
+                      ].map((s, i) => (
+                        <div key={i} style={{ background: "#0f0f1e", borderRadius: 10, padding: 14, marginBottom: 8, borderLeft: `3px solid ${s.color}` }}>
+                          <div style={{ fontSize: 10, color: s.color, fontWeight: 700, marginBottom: 4 }}>{s.label}</div>
+                          <div style={{ fontSize: 13, color: "#e8e8f0", fontWeight: 700, marginBottom: s.desc ? 6 : 0 }}>{s.title}</div>
+                          {s.desc && <div style={{ fontSize: 12, color: "#aaa", lineHeight: 1.6 }}>{s.desc}</div>}
                         </div>
-                        <div style={{ fontSize: 13, color: "#ccc", marginTop: 8, lineHeight: 1.7 }}>{descSignoFinal}</div>
-                      </div>
-
-                      {/* Trecena */}
-                      <div style={{ background: "#0f0f1e", borderRadius: 10, padding: 14, marginBottom: 8, borderLeft: "3px solid #FFD93D" }}>
-                        <div style={{ fontSize: 10, color: "#FFD93D", fontWeight: 700, marginBottom: 4 }}>📅 TRECENA</div>
-                        <div style={{ fontSize: 13, color: "#e8e8f0", fontWeight: 700, marginBottom: 6 }}>Ce (1) {signoTrecena.nombre} · Day {numero} of the cycle</div>
-                        <div style={{ fontSize: 12, color: "#aaa", lineHeight: 1.6 }}>{descTrecenaRica}</div>
-                      </div>
-
-                      {/* Lord of the Night */}
-                      <div style={{ background: "#0f0f1e", borderRadius: 10, padding: 14, marginBottom: 8, borderLeft: "3px solid #C77DFF" }}>
-                        <div style={{ fontSize: 10, color: "#C77DFF", fontWeight: 700, marginBottom: 4 }}>🌙 LORD OF THE NIGHT</div>
-                        <div style={{ fontSize: 13, color: "#e8e8f0", fontWeight: 700, marginBottom: 6 }}>{señorNoche.nombre}</div>
-                        <div style={{ fontSize: 12, color: "#aaa", lineHeight: 1.6 }}>{descNocheFinal}</div>
-                      </div>
-
-                      {/* Lord of the Day */}
-                      <div style={{ background: "#0f0f1e", borderRadius: 10, padding: 14, marginBottom: 8, borderLeft: "3px solid #FF6B6B" }}>
-                        <div style={{ fontSize: 10, color: "#FF6B6B", fontWeight: 700, marginBottom: 4 }}>🔥 LORD OF THE DAY</div>
-                        <div style={{ fontSize: 13, color: "#e8e8f0", fontWeight: 700, marginBottom: 6 }}>{señorDia}</div>
-                        <div style={{ fontSize: 12, color: "#aaa", lineHeight: 1.6 }}>
-                          {señorDia === "Xiuhtecuhtli"
-                            ? "The Lord of Fire, the most ancient of the Mexica gods. Governs the center, the home and transformation. His presence reinforces the character of leadership and the ability to be a center of gravity for those around you — people naturally orbit around fire."
-                            : señorDia === "Tonatiuh"
-                            ? "The sun in its fullness. You are someone who radiates energy and clarity. Tonatiuh demands courage — the sun doesn't hide, it is always present, always gives light."
-                            : señorDia === "Quetzalcoatl"
-                            ? "The feathered serpent. Wisdom, wind and the sacred word. Your day is marked by the search for knowledge and the gift of communicating what others cannot express."
-                            : señorDia === "Tezcatlipoca"
-                            ? "The Smoking Mirror. Depth, duality and the power to see beyond appearances. Tezcatlipoca does not judge — it reveals."
-                            : `${señorDia} rules your number ${numero} in the daily cycle, granting its particular energy to your day of birth.`
-                          }
-                        </div>
-                      </div>
-
-                      {/* Solar Month */}
-                      <div style={{ background: "#0f0f1e", borderRadius: 10, padding: 14, marginBottom: 8, borderLeft: "3px solid #6BCB77" }}>
-                        <div style={{ fontSize: 10, color: "#6BCB77", fontWeight: 700, marginBottom: 4 }}>📆 SOLAR MONTH · XIUHPOHUALLI</div>
-                        <div style={{ fontSize: 13, color: "#e8e8f0", fontWeight: 700, marginBottom: 6 }}>Day {diaSolar} of {mesSolar.nombre}</div>
-                        <div style={{ fontSize: 12, color: "#aaa", lineHeight: 1.6 }}>{descMesFinal}</div>
-                      </div>
-
-                      {/* Year */}
-                      <div style={{ background: "#0f0f1e", borderRadius: 10, padding: 14, marginBottom: 12, borderLeft: "3px solid #4D96FF" }}>
-                        <div style={{ fontSize: 10, color: "#4D96FF", fontWeight: 700, marginBottom: 4 }}>🗓️ YEAR</div>
-                        <div style={{ fontSize: 13, color: "#e8e8f0", fontWeight: 700, marginBottom: 6 }}>{numAño} {signoAño.nombre} — {signoAño.desc}</div>
-                        <div style={{ fontSize: 12, color: "#aaa", lineHeight: 1.6 }}>{descAñoFinal}</div>
-                      </div>
+                      ))}
 
                       {/* Personalized commentary */}
-                      {(() => {
-                        const nombre1 = persona.nombre.split(" ")[0];
-                        const esDia1 = numero === 1;
+                      <div style={{ background: "linear-gradient(135deg, #1a1a2e, #0f0f1e)", borderRadius: 12, padding: 16, marginBottom: 12, border: "1px solid #6C63FF33", borderLeft: "3px solid #6C63FF" }}>
+                        <div style={{ fontSize: 10, color: "#6C63FF", fontWeight: 700, marginBottom: 8, letterSpacing: 1 }}>🌀 WHAT YOUR CALENDAR SAYS</div>
+                        <div style={{ fontSize: 13, color: "#ccc", lineHeight: 1.8 }}>
+                          {mismoSigno
+                            ? `${persona.nombre.split(" ")[0]} carries an extraordinary mark: ${signo.nombre} appears in both the tónali and the trecena. In Mexica cosmovision, when elements align this way, it signals a clear mission and a strongly marked energy of destiny. The cosmos left no room for doubt. 🦅`
+                            : `${persona.nombre.split(" ")[0]} was born under ${signo.nombre} — ${signo.desc} The Mexica calendar does not assign signs randomly: each combination speaks of a unique energy that accompanies the person throughout their entire life.`
+                          }
+                          {esPrimerDia && !mismoSigno ? ` And there's something more: born exactly on day 1 of the trecena — the starting point of the cycle. That gives the sign an unmixed, direct and powerful energy.` : ""}
+                        </div>
+                      </div>
 
-                        const comentariosPorSigno = {
-                          "Cuauhtli": mismoSigno
-                            ? `${nombre1} carries an extraordinary mark: the Eagle appears three times in their profile — in the tónali, in the trecena and in the companion bird. In Mexica cosmovision, when the elements align this way, it is not coincidence. It is a sign that there is a clear mission, a strongly marked energy of destiny. The cosmos left no room for doubt: this person was born to fly high and see far. 🦅🦅🦅`
-                            : `The Eagle is not just any sign. It is the bird of the sun, the one that flies higher than all others, the only one that can look directly at the great star without blinking. ${nombre1} carries that energy — a vision that goes beyond the immediate, a leadership that doesn't need to impose itself because it is felt naturally. Where others see obstacles, the Eagle sees the full panorama from above. 🦅`,
-                          "Ocelotl": mismoSigno
-                            ? `${nombre1} carries the Jaguar throughout their entire profile. In the Mexica tradition, jaguar warriors were the elite — not the loudest, but the most lethal in silence. This double or triple presence of the Jaguar speaks of a person who doesn't need to prove anything. Their power is felt before they speak. 🐆`
-                            : `The Jaguar rules the night and the hidden. ${nombre1} has a depth that isn't always visible — but it's there, waiting for the precise moment to manifest. Like the jaguar lurking in the darkness, they don't act on impulse but with precision. What looks like stillness is actually pure concentration. 🐆`,
-                          "Acatl": mismoSigno
-                            ? `${nombre1} is marked by the Reed twice over — the sign of Quetzalcoatl, the feathered serpent. This combination speaks of someone whose search for knowledge is not a pastime but a deep need of the soul. Wisdom for them is not a destination, it is the path itself. 🎋`
-                            : `The Reed connects ${nombre1} with Quetzalcoatl — the god of wisdom, wind and the sacred word. There is in this person a natural thirst for knowledge, a curiosity with no bottom. Ancient cultures, deep philosophies, the mysteries of the universe — all of this speaks to them in a way they can't always explain. 🎋`,
-                          "Xochitl": mismoSigno
-                            ? `${nombre1} has the Flower throughout their entire calendrical being. In the Mexica world, Xochitl was the sign of artists, musicians, poets — those who could see and create beauty where others see only the ordinary. This double presence says that sensitivity and creativity are not traits of ${nombre1}, they are their essence. 🌸`
-                            : `The Flower speaks of a person who feels the world more intensely than others. ${nombre1} has the gift of finding beauty in the everyday, of creating deep emotional connections and expressing what others feel but cannot articulate. Art, in any of its forms, is their natural language. 🌸`,
-                          "Ollin": mismoSigno
-                            ? `${nombre1} carries Movement throughout their entire profile — the sign of the fifth sun, the current sun. This speaks of a life of constant change and constant rebirth. It's not that things happen to them: they are destined to transform everything they touch. Stillness is not for them. 🌀`
-                            : `Ollin, Movement, marks ${nombre1} with the sign of the current sun — the fifth sun of the Mexica tradition. There is in this person an energy that doesn't stop, a capacity for adaptation and transformation that sometimes surprises even themselves. Change doesn't scare them: it's their natural element. 🌀`,
-                          "Coatl": mismoSigno
-                            ? `${nombre1} has the Serpent at the core of their being. The serpent sheds its skin and is reborn — and this double presence of Coatl speaks of someone who has gone through profound transformations and always emerged renewed. The wisdom they carry doesn't come from books: it comes from having truly lived. 🐍`
-                            : `The Serpent brings ${nombre1} a wisdom that sometimes they don't know where it comes from. Coatl is intuition, it is the ancestral knowledge that appears at the precise moment. There is a depth in this person that isn't always evident on the surface — but those who truly know them know that the water runs very deep. 🐍`,
-                          "Cipactli": `${nombre1} was born under Cipactli — the first sign of the calendar, the primordial force that gives origin to everything. In Mexica mythology, Cipactli was the great caiman from which the earth itself emerged. Being born under this sign speaks of exceptional creative energy, of someone who has the capacity to initiate what others only dream. The origin always has power. 🐊`,
-                          "Ehecatl": `The Wind, Ehecatl, is the messenger of the gods — free, unpredictable, capable of being everywhere. ${nombre1} has that quality: an inner freedom that cannot be caged, a capacity for adaptation that amazes. The wind doesn't ask permission to pass: it simply passes. 💨`,
-                          "Calli": `The House is not a sign of stillness — it is the sign of the inner world. ${nombre1} has an internal richness that few people get to see from outside. Like a great house with many rooms, there are in this person layers and layers of depth. Those who manage to get in discover a universe. 🏠`,
-                          "Cuetzpalin": `The Lizard brings ${nombre1} an agility that goes beyond the physical — it is mental, emotional, adaptive. When the environment changes, the lizard has already changed first. There is in this person a capacity for reinvention that sometimes surprises those around them. 🦎`,
-                          "Miquiztli": `Death in the Mexica calendar is not a dark sign — it is the sign of the deepest transformation. ${nombre1} has an instinctive understanding that endings are also beginnings. They don't fear radical changes because they know, somewhere deep inside, that from the darkness something new always emerges. 💀`,
-                          "Mazatl": `The Deer brings ${nombre1} a natural grace and very sharp intuition. The deer doesn't fight head-on — it listens, feels the environment, and acts with elegance. There is in this person a sensitivity toward others that sometimes seems almost magical. They feel what others don't say. 🦌`,
-                          "Tochtli": `The Rabbit is the sign of abundance and joy. ${nombre1} has the gift of bringing celebration and good cheer wherever they go — not as a performance, but as a genuine energy that others perceive and appreciate. Life has flavor for them. 🐇`,
-                          "Atl": `Water can never be stopped — it goes around obstacles, always finds its way. ${nombre1} has that quality: a soft but relentless persistence. They don't confront head-on; they flow, adapt, and in the end always get where they want to go. 💧`,
-                          "Itzcuintli": `The Dog is the guardian and guide — in the Mexica tradition, it accompanied souls on their journey to the underworld. ${nombre1} has a deep loyalty and an ability to guide others in their darkest moments. People turn to them when they need direction, and rarely leave without having found it. 🐕`,
-                          "Ozomatli": `The Monkey is the patron of art, play and creativity. ${nombre1} has a mind that doesn't rest, always finding unexpected connections, creative solutions, ways of seeing the world that others wouldn't think of. Play is not escapism for them — it's how they think. 🐒`,
-                          "Malinalli": `The Grass is what cannot be destroyed. ${nombre1} has a resilience that sometimes they themselves don't recognize until they need it. Like the grass that grows back after being cut, this person has the ability to be reborn from the most difficult situations stronger than before. 🌿`,
-                          "Cozcacuauhtli": `The Royal Vulture is the sign of the wise elders — those who have seen much and therefore speak less. ${nombre1} has an inner maturity that doesn't always correspond to their age. They are observers, patient, and when they speak it's worth listening. Real wisdom doesn't shout. 🦅`,
-                          "Tecpatl": `The Flint is truth that cuts without mercy. ${nombre1} has an uncommon inner clarity — they can see things as they are, without illusions, without ornaments. That honesty sometimes discomforts those who prefer the comfort of falsehood. But those who truly appreciate them know that edge is a gift. 🔪`,
-                          "Quiahuitl": `The Rain brings life where there was drought before. ${nombre1} has the gift of nurturing — ideas, projects, relationships, people. Like the rain that makes no distinction between the flower and the stone, their generosity sets no conditions. And like the rain, they sometimes arrive at the exact moment they are most needed. 🌧️`,
-                        };
-
-                        const comentario = comentariosPorSigno[signo.nombre]
-                          || `${nombre1} was born under ${signo.nombre} — ${signo.desc} The Mexica calendar does not assign signs randomly: each combination of number, sign and cycle speaks of a unique energy that accompanies the person throughout their entire life.`;
-
-                        const notaDia1 = esDia1 && !mismoSigno
-                          ? ` And there's something more: you were born exactly on day 1 of your trecena — the starting point of the cycle. That gives your sign an unmixed, direct and powerful energy.`
-                          : "";
-
-                        return (
-                          <div style={{
-                            background: "linear-gradient(135deg, #1a1a2e, #0f0f1e)",
-                            borderRadius: 12, padding: 16, marginBottom: 12,
-                            border: "1px solid #6C63FF33", borderLeft: "3px solid #6C63FF"
-                          }}>
-                            <div style={{ fontSize: 10, color: "#6C63FF", fontWeight: 700, marginBottom: 8, letterSpacing: 1 }}>
-                              🌀 WHAT YOUR CALENDAR SAYS
-                            </div>
-                            <div style={{ fontSize: 13, color: "#ccc", lineHeight: 1.8 }}>
-                              {comentario}{notaDia1}
-                            </div>
-                          </div>
-                        );
-                      })()}
-
-                      {/* Nahuatl phrase */}
-                      <div style={{
-                        background: "linear-gradient(135deg, #1a2a1a, #0f0f1e)",
-                        borderRadius: 10, padding: 16, marginTop: 4,
-                        border: "1px solid #2a4a2a", textAlign: "center"
-                      }}>
+                      <div style={{ background: "linear-gradient(135deg, #1a2a1a, #0f0f1e)", borderRadius: 10, padding: 16, marginTop: 4, border: "1px solid #2a4a2a", textAlign: "center" }}>
                         <div style={{ fontSize: 13, color: "#6BCB77", fontStyle: "italic", lineHeight: 1.8, marginBottom: 8 }}>
-                          "Amo xichoka kana, se tonati niualas nimitsitaki,<br />
-                          ipan se yejyektsi uitsitsili nimokuaptos."
+                          "Amo xichoka kana, se tonati niualas nimitsitaki,<br />ipan se yejyektsi uitsitsili nimokuaptos."
                         </div>
                         <div style={{ fontSize: 12, color: "#aaa", lineHeight: 1.7, marginBottom: 10 }}>
                           "Don't cry for me, one day I will come to see you,<br />transformed into a beautiful hummingbird." 🪶
                         </div>
                         <div style={{ fontSize: 10, color: "#00C9A7", letterSpacing: 1, cursor: "pointer", fontWeight: 700 }} onClick={() => setShowAuthor(true)}>-=ArtMoreno=-</div>
                       </div>
-
-                      <button onClick={() => setTonaliVisible(false)}
-                        style={{ background: "none", border: "none", color: "#444", fontSize: 11, cursor: "pointer", marginTop: 10 }}>
-                        × Close
-                      </button>
+                      <button onClick={() => setTonaliVisible(false)} style={{ background: "none", border: "none", color: "#444", fontSize: 11, cursor: "pointer", marginTop: 10 }}>× Close</button>
                     </div>
                   );
                 })()}
@@ -1272,22 +1025,16 @@ Respond ONLY with a JSON object with exactly this structure, no additional text,
               {/* Zodiac */}
               {zodiacData && (
                 <div style={{ background: "#1a1a2e", borderRadius: 14, padding: 16, marginBottom: 12 }}>
-                  <div style={{ fontSize: 11, color: "#C77DFF", fontWeight: 700, letterSpacing: 1, marginBottom: 12 }}>
-                    {zodiacData.emoji} ZODIAC SIGN · {signoNombre.toUpperCase()}
-                  </div>
+                  <div style={{ fontSize: 11, color: "#C77DFF", fontWeight: 700, letterSpacing: 1, marginBottom: 12 }}>{zodiacData.emoji} ZODIAC SIGN · {signoNombre.toUpperCase()}</div>
                   <div style={{ fontSize: 13, color: "#ccc", lineHeight: 1.6, marginBottom: 12 }}>{zodiacData.descripcion}</div>
                   <div style={{ display: "flex", gap: 10, marginBottom: 12 }}>
                     <div style={{ flex: 1, background: "#0f0f1e", borderRadius: 10, padding: 10 }}>
                       <div style={{ fontSize: 10, color: "#6BCB77", fontWeight: 700, marginBottom: 6 }}>💚 COMPATIBLE WITH</div>
-                      {zodiacData.compatible.map(s => (
-                        <div key={s} style={{ fontSize: 12, color: "#aaa", marginBottom: 2 }}>• {s}</div>
-                      ))}
+                      {zodiacData.compatible.map(s => <div key={s} style={{ fontSize: 12, color: "#aaa", marginBottom: 2 }}>• {s}</div>)}
                     </div>
                     <div style={{ flex: 1, background: "#0f0f1e", borderRadius: 10, padding: 10 }}>
                       <div style={{ fontSize: 10, color: "#FF6B6B", fontWeight: 700, marginBottom: 6 }}>🚫 BETTER AVOID</div>
-                      {zodiacData.evitar.map(s => (
-                        <div key={s} style={{ fontSize: 12, color: "#aaa", marginBottom: 2 }}>• {s}</div>
-                      ))}
+                      {zodiacData.evitar.map(s => <div key={s} style={{ fontSize: 12, color: "#aaa", marginBottom: 2 }}>• {s}</div>)}
                     </div>
                   </div>
                   <div style={{ background: "#0f0f1e", borderRadius: 10, padding: 10, marginBottom: 10 }}>
@@ -1305,20 +1052,15 @@ Respond ONLY with a JSON object with exactly this structure, no additional text,
                 </div>
               )}
 
-              {/* ── SOUL READING — AKASHIC RECORDS ─────────── */}
+              {/* Akashic Records */}
               <div style={{ background: "#1a1a2e", borderRadius: 14, padding: 16, marginBottom: 12 }}>
-                <div style={{ fontSize: 11, color: "#00C9A7", fontWeight: 700, letterSpacing: 1, marginBottom: 12 }}>
-                  🌌 SOUL READING — AKASHIC RECORDS 🌌
-                </div>
+                <div style={{ fontSize: 11, color: "#00C9A7", fontWeight: 700, letterSpacing: 1, marginBottom: 12 }}>🌌 SOUL READING — AKASHIC RECORDS 🌌</div>
                 {!akashic && !akashicLoading && (
                   <button onClick={() => handleLecturaAlma(persona)} style={{
-                    width: "100%",
-                    background: "linear-gradient(135deg, #00C9A722, #6C63FF22)",
+                    width: "100%", background: "linear-gradient(135deg, #00C9A722, #6C63FF22)",
                     border: "1px solid #00C9A755", borderRadius: 10, padding: "12px",
                     color: "#00C9A7", fontSize: 14, fontWeight: 700, cursor: "pointer"
-                  }}>
-                    🌌 Open my Akashic Record 🌌
-                  </button>
+                  }}>🌌 Open my Akashic Record 🌌</button>
                 )}
                 {akashicLoading && (
                   <div style={{ textAlign: "center", padding: "24px 0", color: "#6666aa", fontSize: 13 }}>
@@ -1330,10 +1072,7 @@ Respond ONLY with a JSON object with exactly this structure, no additional text,
                 {akashicError && (
                   <div style={{ color: "#FF6B6B", fontSize: 13, textAlign: "center" }}>
                     {akashicError}
-                    <button onClick={() => handleLecturaAlma(persona)}
-                      style={{ display: "block", margin: "8px auto 0", background: "none", border: "none", color: "#6C63FF", cursor: "pointer", fontSize: 13 }}>
-                      Try again
-                    </button>
+                    <button onClick={() => handleLecturaAlma(persona)} style={{ display: "block", margin: "8px auto 0", background: "none", border: "none", color: "#6C63FF", cursor: "pointer", fontSize: 13 }}>Try again</button>
                   </div>
                 )}
                 {akashic && (() => {
@@ -1346,33 +1085,15 @@ Respond ONLY with a JSON object with exactly this structure, no additional text,
                   ];
                   return (
                     <div>
-                      {secciones.map((s, i) => (
-                        akashic[s.key] && (
-                          <div key={i} style={{
-                            background: "#0f0f1e", borderRadius: 10, padding: 14,
-                            marginBottom: 10, borderLeft: `3px solid ${s.color}`
-                          }}>
-                            <div style={{ fontSize: 10, color: s.color, fontWeight: 700, marginBottom: 6, letterSpacing: 1 }}>
-                              {s.icon} {s.label}
-                            </div>
-                            <div style={{ fontSize: 13, color: "#ccc", lineHeight: 1.8 }}>
-                              {s.key === "mensaje"
-                                ? <em style={{ color: "#aaa" }}>"{akashic[s.key]}"</em>
-                                : akashic[s.key]
-                              }
-                            </div>
+                      {secciones.map((s, i) => akashic[s.key] && (
+                        <div key={i} style={{ background: "#0f0f1e", borderRadius: 10, padding: 14, marginBottom: 10, borderLeft: `3px solid ${s.color}` }}>
+                          <div style={{ fontSize: 10, color: s.color, fontWeight: 700, marginBottom: 6, letterSpacing: 1 }}>{s.icon} {s.label}</div>
+                          <div style={{ fontSize: 13, color: "#ccc", lineHeight: 1.8 }}>
+                            {s.key === "mensaje" ? <em style={{ color: "#aaa" }}>"{akashic[s.key]}"</em> : akashic[s.key]}
                           </div>
-                        )
+                        </div>
                       ))}
-                      <div onClick={() => setShowAuthor(true)} style={{
-                        textAlign: "center", marginTop: 8,
-                        fontSize: 10, color: "#00C9A7", letterSpacing: 1,
-                        cursor: "pointer", fontWeight: 700
-                      }}>-=ArtMoreno=-</div>
-                      <button onClick={() => setAkashic(null)}
-                        style={{ background: "none", border: "none", color: "#444", fontSize: 11, cursor: "pointer", marginTop: 8 }}>
-                        × Close
-                      </button>
+                      <button onClick={() => setAkashic(null)} style={{ background: "none", border: "none", color: "#444", fontSize: 11, cursor: "pointer", marginTop: 8 }}>× Close</button>
                     </div>
                   );
                 })()}
@@ -1393,76 +1114,37 @@ Respond ONLY with a JSON object with exactly this structure, no additional text,
               )}
 
               <div style={{ display: "flex", gap: 10, marginTop: 20 }} className="no-print">
-                <button onClick={() => handleEdit(persona)}
-                  style={{ flex: 1, background: "#1a1a2e", border: "1px solid #2a2a4e", borderRadius: 12, padding: 12, color: "#6C63FF", fontWeight: 700, cursor: "pointer" }}>
-                  ✏️ Edit
-                </button>
+                <button onClick={() => handleEdit(persona)} style={{ flex: 1, background: "#1a1a2e", border: "1px solid #2a2a4e", borderRadius: 12, padding: 12, color: "#6C63FF", fontWeight: 700, cursor: "pointer" }}>✏️ Edit</button>
                 <button onClick={() => { if (window.confirm("Delete " + persona.nombre + "?")) handleDelete(persona.id); }}
-                  style={{ flex: 1, background: "#1a1a2e", border: "1px solid #3a1a1a", borderRadius: 12, padding: 12, color: "#FF6B6B", fontWeight: 700, cursor: "pointer" }}>
-                  🗑️ Delete
-                </button>
+                  style={{ flex: 1, background: "#1a1a2e", border: "1px solid #3a1a1a", borderRadius: 12, padding: 12, color: "#FF6B6B", fontWeight: 700, cursor: "pointer" }}>🗑️ Delete</button>
               </div>
 
-              {/* Print button */}
-              <button className="no-print" onClick={() => window.print()}
-                style={{
-                  width: "100%", marginTop: 10,
-                  background: "linear-gradient(135deg, #1a2a1a, #0f1f0f)",
-                  border: "1px solid #6BCB7755", borderRadius: 12, padding: 14,
-                  color: "#6BCB77", fontSize: 14, fontWeight: 700, cursor: "pointer",
-                  display: "flex", alignItems: "center", justifyContent: "center", gap: 8
-                }}>
-                🖨️ Print / Save as PDF
-              </button>
+              <button className="no-print" onClick={() => window.print()} style={{
+                width: "100%", marginTop: 10,
+                background: "linear-gradient(135deg, #1a2a1a, #0f1f0f)",
+                border: "1px solid #6BCB7755", borderRadius: 12, padding: 14,
+                color: "#6BCB77", fontSize: 14, fontWeight: 700, cursor: "pointer",
+                display: "flex", alignItems: "center", justifyContent: "center", gap: 8
+              }}>🖨️ Print / Save as PDF</button>
             </div>
           </div>
         );
       })()}
 
-      {/* ── AUTHOR MODAL ─────────────────────────────────────── */}
+      {/* Author modal */}
       {showAuthor && (
-        <div onClick={() => setShowAuthor(false)} style={{
-          position: "fixed", inset: 0, background: "rgba(0,0,0,0.85)",
-          display: "flex", alignItems: "center", justifyContent: "center",
-          zIndex: 1000, padding: "20px"
-        }}>
-          <div onClick={e => e.stopPropagation()} style={{
-            background: "linear-gradient(135deg, #1a1a2e, #0f0f1e)",
-            borderRadius: 20, padding: 28, width: "100%", maxWidth: 340,
-            border: "1px solid #00C9A733", textAlign: "center"
-          }}>
-            <div style={{
-              width: 72, height: 72, borderRadius: "50%", margin: "0 auto 16px",
-              background: "linear-gradient(135deg, #00C9A7, #6C63FF)",
-              display: "flex", alignItems: "center", justifyContent: "center", fontSize: 32
-            }}>🦅</div>
-            <div style={{ fontFamily: "'Playfair Display', serif", fontSize: 20, fontWeight: 700, color: "#fff", marginBottom: 4 }}>
-              -=ArtMoreno=-
+        <div onClick={() => setShowAuthor(false)} style={{ position: "fixed", inset: 0, background: "rgba(0,0,0,0.85)", display: "flex", alignItems: "center", justifyContent: "center", zIndex: 1000, padding: "20px" }}>
+          <div onClick={e => e.stopPropagation()} style={{ background: "linear-gradient(135deg, #1a1a2e, #0f0f1e)", borderRadius: 20, padding: 28, width: "100%", maxWidth: 340, border: "1px solid #00C9A733", textAlign: "center" }}>
+            <div style={{ width: 72, height: 72, borderRadius: "50%", margin: "0 auto 16px", background: "linear-gradient(135deg, #00C9A7, #6C63FF)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 32 }}>🦅</div>
+            <div style={{ fontFamily: "'Playfair Display', serif", fontSize: 20, fontWeight: 700, color: "#fff", marginBottom: 4 }}>-=ArtMoreno=-</div>
+            <div style={{ fontSize: 12, color: "#6666aa", marginBottom: 20 }}>Creator of The Vault of Chronos</div>
+            <div style={{ background: "#0f0f1e", borderRadius: 12, padding: 14, marginBottom: 20, border: "1px solid #00C9A722" }}>
+              <div style={{ fontSize: 11, color: "#00C9A7", fontStyle: "italic", lineHeight: 1.7 }}>"Awakening is not what you expected..."</div>
             </div>
-            <div style={{ fontSize: 12, color: "#6666aa", marginBottom: 20 }}>
-              Creator of The Vault of Chronos
-            </div>
-            <div style={{
-              background: "#0f0f1e", borderRadius: 12, padding: 14, marginBottom: 20,
-              border: "1px solid #00C9A722"
-            }}>
-              <div style={{ fontSize: 11, color: "#00C9A7", fontStyle: "italic", lineHeight: 1.7 }}>
-                "Awakening is not what you expected..."
-              </div>
-            </div>
-            <a href="mailto:despertarnoescomoloesperabas@gmail.com" style={{
-              display: "block", textDecoration: "none",
-              background: "linear-gradient(135deg, #00C9A7, #6C63FF)",
-              borderRadius: 12, padding: "14px",
-              color: "#fff", fontSize: 13, fontWeight: 700, marginBottom: 12
-            }}>
+            <a href="mailto:despertarnoescomoloesperabas@gmail.com" style={{ display: "block", textDecoration: "none", background: "linear-gradient(135deg, #00C9A7, #6C63FF)", borderRadius: 12, padding: "14px", color: "#fff", fontSize: 13, fontWeight: 700, marginBottom: 12 }}>
               ✉️ despertarnoescomoloesperabas@gmail.com
             </a>
-            <button onClick={() => setShowAuthor(false)} style={{
-              background: "none", border: "none", color: "#444", fontSize: 12, cursor: "pointer", marginTop: 4
-            }}>
-              × Close
-            </button>
+            <button onClick={() => setShowAuthor(false)} style={{ background: "none", border: "none", color: "#444", fontSize: 12, cursor: "pointer", marginTop: 4 }}>× Close</button>
           </div>
         </div>
       )}
