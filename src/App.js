@@ -400,6 +400,7 @@ export default function App() {
   const [akashicLoading, setAkashicLoading] = useState(false);
   const [akashicError, setAkashicError] = useState(null);
   const [showAuthor, setShowAuthor] = useState(false);
+ // eslint-disable-next-line no-unused-vars
   const [tick, setTick] = useState(0);
 
   useEffect(() => {
